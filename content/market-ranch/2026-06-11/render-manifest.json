@@ -1,0 +1,40 @@
+{
+  "post_id": "2026-06-11-activation-roi-story",
+  "date": "2026-06-11",
+  "theme": "Theme 2 — Activation results / ROI story",
+  "spec_file": "design-spec.json",
+  "template_file": "template.html",
+  "deliverables": {
+    "poster_png": "market-ranch-2026-06-11-poster.png",
+    "reel_mp4": "market-ranch-2026-06-11-reel.mp4",
+    "caption": "caption.txt"
+  },
+  "render": {
+    "png": {
+      "command": "node scripts/render.js content/market-ranch/2026-06-11/template.html content/market-ranch/2026-06-11/market-ranch-2026-06-11-poster.png",
+      "size": "420x740 (840x1480 @ deviceScaleFactor 2)",
+      "mode": "static (seekTo(duration) at end-state)"
+    },
+    "mp4": {
+      "command": "node scripts/render_video.js content/market-ranch/2026-06-11/template.html content/market-ranch/2026-06-11/design-spec.json content/market-ranch/2026-06-11/market-ranch-2026-06-11-reel.mp4",
+      "verified_specs": { "width": 1080, "height": 1920, "fps": 30, "pix_fmt": "yuv420p", "duration_sec": 12 }
+    }
+  },
+  "verification": {
+    "spot_frames_sec": [0.5, 4.5, 6.0, 11.5],
+    "checklist": [
+      { "item": "diagonal split visible", "pass": true, "notes": "dark top-left / yellow bottom-right, cut animates in via diagonalWipe; visible from t=0.5 onward" },
+      { "item": "grain present", "pass": true, "notes": "feTurbulence SVG overlay, opacity 0.2, mix-blend-mode overlay over #bg" },
+      { "item": "both bubbles inverted colors", "pass": true, "notes": "bubble_left (over dark panel) = yellow bg / dark text; bubble_right (over yellow panel) = dark bg / white text with yellow border accent" },
+      { "item": "ticker readable", "pass": true, "notes": "initial render had the static end-state ticker mid-scroll, clipping '38% ENGAGEMEN' at the right edge. Fixed scrollLoop in template.html to rest the ticker at translateX(0) when mode=='static', so the PNG always shows the clean start of the ticker text. Video ticker continues to scroll continuously as intended." },
+      { "item": "CTA on screen at end", "pass": true, "notes": "fadeUpPulse zone, fully visible and centered in bottom 40px black strip at t=11.5 and in static PNG" },
+      { "item": "nothing clipped at 1080x1920", "pass": true, "notes": "verified via ffprobe (1080x1920, yuv420p, 30fps, 12s) and spot frames" },
+      { "item": "fonts are Bebas Neue / DM Sans, not serif fallback", "pass": true, "notes": "Bebas Neue condensed display visible on brandbar/headline/ticker; DM Sans visible on bubbles/CTA. Loaded via @font-face from /fonts (BebasNeue.ttf, DMSans.ttf) per CLAUDE.md — no Google Fonts CDN used" },
+      { "item": "all 7 structural zones present", "pass": true, "notes": "brandbar, bg (diagonal+grain), emoji_left/emoji_right, bubble_left/bubble_right, headline, ticker, cta — all present and confirmed in spot frames + static PNG" }
+    ],
+    "fixes_made": [
+      "scrollLoop animation: in static mode, ticker now resets to translateX(0) for the end-state poster instead of using the time-based modulo offset, which was clipping mid-word at t=duration. Video mode unaffected — ticker scrolls continuously as designed."
+    ]
+  },
+  "result": "All checks passed after one fix. PNG end-state matches MP4 final composition (ticker clean-start in static, scrolling in video by design)."
+}

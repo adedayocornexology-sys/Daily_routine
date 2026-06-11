@@ -1,0 +1,41 @@
+{
+  "post_id": "2026-06-11-activation-roi-story",
+  "format": {
+    "static": { "w": 420, "h": 740 },
+    "video": { "w": 1080, "h": 1920, "fps": 30, "duration": 12 }
+  },
+  "content": {
+    "headline": "12,400 PEOPLE TOUCHED ONE WEEKEND",
+    "bubble_left": "Our last billboard ran 30 days. What did it actually move?",
+    "bubble_right": "3 days on ground: 12.4k foot traffic, 38% engagement, 1,900 conversions.",
+    "emoji_left": "📊",
+    "emoji_right": "🐄",
+    "ticker_text": "12,400 Foot Traffic · 38% Engagement Rate · 1,900 Conversions · 3-Day Activation · Real Numbers, Real Field",
+    "cta_text": "📩 DM us for your activation report"
+  },
+  "timeline": [
+    { "t": 0.0, "zone": "bg", "anim": "diagonalWipe", "dur": 0.8, "why": "yellow slices in first — sets premium brand entrance before any copy appears" },
+    { "t": 0.4, "zone": "brandbar", "anim": "slideDown", "dur": 0.4, "why": "brandbar drops in just after the split starts so it reads as part of the same motion, not a separate beat" },
+    { "t": 1.0, "zone": "headline", "anim": "wordReveal", "dur": 2.4, "why": "the headline IS the result — '12,400 PEOPLE TOUCHED ONE WEEKEND' lands word by word so the number hits with weight, not all at once" },
+    { "t": 3.6, "zone": "emoji_left", "anim": "pop", "dur": 0.4, "why": "the skeptic (chart icon) appears first — sets up the question before Market Ranch answers" },
+    { "t": 4.0, "zone": "bubble_left", "anim": "bubblePop", "dur": 0.5, "why": "the doubt/question lands — billboard spend with no measurable return, the pain point the audience recognizes" },
+    { "t": 5.0, "zone": "emoji_right", "anim": "pop", "dur": 0.4, "why": "Market Ranch enters after the question has had a beat to breathe" },
+    { "t": 5.4, "zone": "bubble_right", "anim": "bubblePop", "dur": 0.5, "why": "Market Ranch answers last with hard numbers — gets the mic and the final word" },
+    { "t": 6.2, "zone": "ticker", "anim": "scrollLoop", "dur": 5.8, "why": "ticker starts once the core story (question -> proof) has resolved, reinforcing the stats as the scene holds" },
+    { "t": 7.4, "zone": "cta", "anim": "fadeUpPulse", "dur": 0.6, "why": "CTA arrives last and pulses gently to draw the eye for the final ~4.5s hold, matching the static poster end-state" }
+  ],
+  "caption": "see caption.txt",
+  "verification": {
+    "spot_frames_sec": [0.5, 4.5, 6.0, 11.5],
+    "checklist": [
+      "diagonal split visible",
+      "grain present",
+      "both bubbles inverted colors",
+      "ticker readable",
+      "CTA on screen at end",
+      "nothing clipped at 1080x1920",
+      "fonts are Bebas Neue / DM Sans, not serif fallback",
+      "all 7 structural zones present"
+    ]
+  }
+}

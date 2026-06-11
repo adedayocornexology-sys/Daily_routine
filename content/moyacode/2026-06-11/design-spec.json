@@ -1,0 +1,48 @@
+{
+  "post_id": "2026-06-11-moyacode-parents-future-proof",
+  "format": {
+    "static": { "w": 420, "h": 740 },
+    "video":  { "w": 1080, "h": 1920, "fps": 30, "duration": 12 }
+  },
+  "content": {
+    "eyebrow": "MOYACODE FOR PARENTS",
+    "headline": ["GIVE THEM", "A HEAD", "START"],
+    "subhead": "Coding & AI fluency before university — the edge every Owo parent wants for their child",
+    "tracks": ["Scratch & Python", "Web Dev Basics", "AI Fluency"],
+    "stats": [
+      {"v":"8", "l":"WEEKS"},
+      {"v":"100%", "l":"PERSONAL MENTORSHIP"},
+      {"v":"3", "l":"REAL PROJECTS"}
+    ],
+    "cta": "ENROLL FOR HOLIDAY BOOTCAMP",
+    "cta_info": "MoyaCode Hub · Owo, Ondo State",
+    "venue": "Owo, Ondo State",
+    "hashtag": "#MoyaCode"
+  },
+  "timeline": [
+    { "t": 0.0, "zone": "topbar",   "anim": "wipeRight",   "dur": 0.5, "why": "brand gradient bar opens the build, sets premium tone first" },
+    { "t": 0.3, "zone": "header",   "anim": "fadeDown",    "dur": 0.4, "why": "logo settles in early so the brand is established before any message" },
+    { "t": 0.8, "zone": "eyebrow",  "anim": "lineGrow",    "dur": 0.5, "why": "coral label + line grow signals 'who this is for' before the big promise" },
+    { "t": 1.3, "zone": "headline", "anim": "lineStagger", "dur": 1.8, "why": "white -> teal -> hollow stroke staggered per line builds the core hook 'GIVE THEM A HEAD START' beat by beat" },
+    { "t": 3.1, "zone": "subhead",  "anim": "fadeUp",      "dur": 0.5, "why": "parent-facing reasoning lands right after the emotional hook, while it's fresh" },
+    { "t": 3.6, "zone": "divider",  "anim": "wipeRight",   "dur": 0.4, "why": "visual breath between the promise (headline/subhead) and the proof (tracks/stats)" },
+    { "t": 4.0, "zone": "tracks",   "anim": "pillStagger", "dur": 0.9, "why": "the three skill tracks pop in sequence -- shows breadth (coding to AI) without feeling like a list dump" },
+    { "t": 5.0, "zone": "stats",    "anim": "countUp",     "dur": 1.2, "why": "8 weeks / mentorship / 3 projects count up to feel concrete and gamified, reassures parents this is structured, not vague" },
+    { "t": 6.4, "zone": "ctabox",   "anim": "popPulse",    "dur": 0.6, "why": "enrollment CTA lands last and pulses through the hold so it's the final, most memorable beat -- drives action" },
+    { "t": 7.0, "zone": "footer",   "anim": "fadeUp",      "dur": 0.4, "why": "location + hashtag settle quietly under the CTA, doesn't compete for attention" }
+  ],
+  "caption": "Give your child a head start before university -- enroll in MoyaCode's Holiday Bootcamp in Owo.",
+  "verification": {
+    "spot_frames_sec": [0.6, 3.5, 6.8, 11.5],
+    "checklist": [
+      "all 4 bg layers visible",
+      "3-line headline treatment correct (white / teal accent / hollow stroke)",
+      "3 pills teal/coral/amber",
+      "stats finished counting at end",
+      "CTA pulsing and readable",
+      "nothing clipped at 1080x1920",
+      "fonts are Bebas Neue / Syne / Space Grotesk, not serif fallback",
+      "PNG end-state matches MP4 final frame"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "post_id": "2026-06-11-moyacode-parents-future-proof",
+  "date": "2026-06-11",
+  "theme": "Theme 2 — Parent-facing: why coding before university (calendar/moyacode-themes.md)",
+  "theme_note": "Theme 1 ('Don't just wait for results') was used 2026-06-10, so Theme 2 was selected per the variation rule.",
+  "spec_path": "content/moyacode/2026-06-11/design-spec.json",
+  "template_path": "content/moyacode/2026-06-11/template.html",
+  "outputs": {
+    "png": "content/moyacode/2026-06-11/moyacode-2026-06-11-poster.png",
+    "mp4": "content/moyacode/2026-06-11/moyacode-2026-06-11-reel.mp4"
+  },
+  "render_video_meta": {
+    "resolution": "1080x1920",
+    "fps": 30,
+    "duration_sec": 12,
+    "pix_fmt": "yuv420p",
+    "preset": "ultrafast",
+    "crf": 28,
+    "movflags": "+faststart"
+  },
+  "issues_found_and_fixed": [
+    {
+      "issue": "template.html embedded the literal placeholder string \"__SPEC_PLACEHOLDER__\" inside a JS object literal (`window.SPEC = window.SPEC || { \"__SPEC_PLACEHOLDER__\" }`), which is invalid JS syntax. This threw a SyntaxError on page load before window.READY could be set, causing render_video.js's `page.waitForFunction('window.READY === true')` to time out at 30s.",
+      "fix": "Replaced the placeholder with the actual design-spec.json content (content + timeline) embedded as a valid JS object literal, so the template works standalone for static mode and the injected window.SPEC (via evaluateOnNewDocument) still takes precedence in video mode."
+    },
+    {
+      "issue": "Stat #2 used data-v=\"1-on-1\" with the countUp animation. The countUp regex strips all non-digits (`1-on-1` -> `11`), parses to 11, then replaces the FIRST digit run in the original string with 11, producing the garbled result \"11-on-1\" / \"11-ON-1\" in both the PNG and MP4 final frame.",
+      "fix": "Changed stat #2 to {\"v\":\"100%\", \"l\":\"PERSONAL MENTORSHIP\"} (and matching markup data-v=\"100%\" / label \"Personal Mentorship\"), which counts up cleanly to \"100%\" and reinforces the 1-on-1 mentorship message without breaking the regex. Updated both design-spec.json and template.html (markup + embedded SPEC)."
+    }
+  ],
+  "verification": {
+    "spot_frames_sec": [0.6, 3.5, 6.8, 11.5],
+    "checklist": [
+      { "item": "all 4 bg layers visible (.bg-grid, .bg-glow-teal, .bg-glow-coral, .bg-grain)", "pass": true },
+      { "item": "3-line headline treatment correct (white / teal accent / hollow stroke)", "pass": true, "detail": "GIVE THEM (white) / A HEAD (teal accent) / START (hollow stroke) — staggered lineStagger reveal confirmed at t=3.5" },
+      { "item": "3 pills teal/coral/amber", "pass": true, "detail": "Scratch & Python (teal), Web Dev Basics (coral), AI Fluency (amber)" },
+      { "item": "stats finished counting at end", "pass": true, "detail": "8 / 100% / 3 all fully resolved at t=6.8 and t=11.5" },
+      { "item": "CTA pulsing and readable", "pass": true, "detail": "ENROLL FOR HOLIDAY BOOTCAMP visible, popPulse active at t=6.8 and t=11.5" },
+      { "item": "nothing clipped at 1080x1920", "pass": true },
+      { "item": "fonts are Bebas Neue / Syne / Space Grotesk, not serif fallback", "pass": true, "detail": "Loaded via local @font-face from /fonts (BebasNeue.ttf, SpaceGrotesk.ttf, Syne.ttf) per CLAUDE.md brand law; confirmed visually distinct from serif fallback in all frames" },
+      { "item": "PNG end-state matches MP4 final frame", "pass": true, "detail": "Compared poster PNG against check_4.jpg (t=11.5) — identical composition" },
+      { "item": "all structural zones present (topbar, header, eyebrow, headline, subhead, divider, tracks, stats, ctabox, footer, deco circles, code tag, pulse dots)", "pass": true }
+    ],
+    "result": "ALL CHECKS PASS after the two fixes above. Re-rendered PNG and MP4 after fixes; spot frames re-extracted and re-verified."
+  },
+  "deliverables": [
+    "content/moyacode/2026-06-11/design-spec.json",
+    "content/moyacode/2026-06-11/template.html",
+    "content/moyacode/2026-06-11/moyacode-2026-06-11-poster.png",
+    "content/moyacode/2026-06-11/moyacode-2026-06-11-reel.mp4",
+    "content/moyacode/2026-06-11/caption.txt",
+    "content/moyacode/2026-06-11/render-manifest.json"
+  ]
+}
